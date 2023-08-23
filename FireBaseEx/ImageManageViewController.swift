@@ -1,14 +1,35 @@
 import UIKit
 import FirebaseStorage
+import FirebaseAuth
 
 class ImageManageViewController: UIViewController {
     @IBOutlet weak var pictureImageView: UIImageView!
+    @IBOutlet weak var storageSearchBar: UISearchBar!
     
     let storage = Storage.storage()
+    var imageNames: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpSearchBar()
+        setUpstorageImage()
+        pictureImageView.contentMode = .scaleAspectFill
+    }
+    
+    func setUpSearchBar() {
+        storageSearchBar.delegate = self
+        storageSearchBar.searchBarStyle = .minimal
+    }
+    
+    func setUpstorageImage() {
+        storage.reference().child("myImages").listAll { result, error in
+            guard let items = result?.items else { return }
+            
+            items.forEach {
+                self.imageNames.append($0.name)
+            }
+        }
     }
     
     @IBAction func imageUploadButton(_ sender: UIButton) {
@@ -19,35 +40,40 @@ class ImageManageViewController: UIViewController {
         let filePath = "Van de ven"
         let metaData = StorageMetadata() // Firebase 저장소에 있는 개체의 메타데이터를 나타내는 클래스, URL, 콘텐츠 유형 및 문제의 개체에 대한 FIRStorage 참조를 검색하는 데 사용
         metaData.contentType = "image/png" // 데이터 타입을 image or png
-        
-        storage.reference().child(filePath).putData(data, metadata: metaData) {
-            (metaData,error) in if let error = error { // 실패
-                print(error)
-                
-                return
-            } else {
-                print("성공")
-            }
-        }
     }
     
-    @IBAction func imageDownloadButton(_ sender: UIButton) {
-        storage.reference(forURL: "gs://fir-ex-41229.appspot.com/Van de ven .jpeg").downloadURL { url, error in
-            guard error == nil else {
-                print(error?.localizedDescription)
-                return }
-            
-            guard let url = url else { return }
-            
-            DispatchQueue.global().async {
-                if let data = try? Data(contentsOf: url) {
-                    if let pictureImage = UIImage(data: data) {
-                        DispatchQueue.main.async {
-                            self.pictureImageView.image = pictureImage
+    @IBAction func searchButton(_ sender: UIButton) {
+        guard let text = storageSearchBar.text else { return }
+        
+        if !imageNames.filter({ $0.components(separatedBy: ".")[0] == text }).isEmpty {
+            imageNames.forEach {
+                if $0.components(separatedBy: ".")[0] == text {
+                    storage.reference(forURL: "gs://fir-ex-41229.appspot.com/myImages/\($0)").downloadURL { url, error in
+                        guard error == nil else { return }
+                        guard let url = url else { return }
+                        
+                        DispatchQueue.global().async {
+                            if let data = try? Data(contentsOf: url) {
+                                if let pictureImage = UIImage(data: data) {
+                                    DispatchQueue.main.async {
+                                        self.pictureImageView.image = pictureImage
+                                    }
+                                }
+                            }
                         }
                     }
                 }
             }
+        } else {
+            DispatchQueue.main.async {
+                self.pictureImageView.image = UIImage(named: "검색 X")
+            }
         }
+    }
+}
+
+extension ImageManageViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = storageSearchBar.text else { return }
     }
 }
