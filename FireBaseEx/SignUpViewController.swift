@@ -21,8 +21,6 @@ class SignUpViewController: UIViewController {
                 print(error.localizedDescription)
             } else {
                 print(authResult?.user.email)
-                
-                
             }
         }
     }
