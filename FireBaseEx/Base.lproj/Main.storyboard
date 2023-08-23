@@ -99,52 +99,86 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QyV-9s-KQ7">
-                                <rect key="frame" x="100" y="618" width="193" height="35"/>
-                                <color key="backgroundColor" red="1" green="0.90602928670000005" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" systemColor="systemRedColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="이미지 업로드 "/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="40G-oT-3eF">
+                                <rect key="frame" x="0.0" y="59" width="323" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="imageUploadButton:" destination="sWS-XM-X4y" eventType="touchUpInside" id="GHT-jr-EF3"/>
+                                    <outlet property="delegate" destination="sWS-XM-X4y" id="eUY-Ea-dVg"/>
+                                </connections>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eP-GF-JZd">
+                                <rect key="frame" x="338.66666666666669" y="59" width="54.333333333333314" height="56"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="magnifyingglass.circle" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="searchButton:" destination="sWS-XM-X4y" eventType="touchUpInside" id="gAx-KB-G9l"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYw-Vr-vC3">
-                                <rect key="frame" x="100" y="723" width="193" height="35"/>
-                                <color key="backgroundColor" systemColor="labelColor"/>
-                                <color key="tintColor" name="AccentColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="이미지 다운로드"/>
-                                <connections>
-                                    <action selector="imageDownloadButton:" destination="sWS-XM-X4y" eventType="touchUpInside" id="bqI-2V-WU9"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="sNW-m0-GZD">
+                                <rect key="frame" x="50" y="599.33333333333337" width="293" height="118.66666666666663"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QyV-9s-KQ7">
+                                        <rect key="frame" x="30" y="0.0" width="233" height="34.333333333333336"/>
+                                        <color key="backgroundColor" red="1" green="0.90602928670000005" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" systemColor="systemRedColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="이미지 업로드 "/>
+                                        <connections>
+                                            <action selector="imageUploadButton:" destination="sWS-XM-X4y" eventType="touchUpInside" id="GHT-jr-EF3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYw-Vr-vC3">
+                                        <rect key="frame" x="30" y="84.333333333333258" width="233" height="34.333333333333343"/>
+                                        <color key="backgroundColor" systemColor="labelColor"/>
+                                        <color key="tintColor" name="AccentColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="이미지 다운로드"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="QyV-9s-KQ7" firstAttribute="leading" secondItem="sNW-m0-GZD" secondAttribute="leading" constant="30" id="2dE-lU-s96"/>
+                                    <constraint firstItem="vYw-Vr-vC3" firstAttribute="leading" secondItem="sNW-m0-GZD" secondAttribute="leading" constant="30" id="8Q0-bM-ZUW"/>
+                                    <constraint firstAttribute="trailing" secondItem="vYw-Vr-vC3" secondAttribute="trailing" constant="30" id="LDg-ap-N81"/>
+                                    <constraint firstAttribute="trailing" secondItem="QyV-9s-KQ7" secondAttribute="trailing" constant="30" id="md4-UG-EkA"/>
+                                </constraints>
+                            </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nM8-mo-NG8">
-                                <rect key="frame" x="70" y="89" width="253" height="329"/>
+                                <rect key="frame" x="50" y="195" width="293" height="293"/>
+                                <color key="backgroundColor" red="0.88235294119999996" green="0.93333333330000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="nM8-mo-NG8" secondAttribute="height" multiplier="1:1" id="rm9-Fe-ihj"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Kxa-Oz-qoG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="nM8-mo-NG8" firstAttribute="leading" secondItem="Kxa-Oz-qoG" secondAttribute="leading" constant="70" id="45P-oX-woM"/>
-                            <constraint firstItem="QyV-9s-KQ7" firstAttribute="leading" secondItem="Kxa-Oz-qoG" secondAttribute="leading" constant="100" id="Ag6-ML-wnI"/>
-                            <constraint firstItem="vYw-Vr-vC3" firstAttribute="top" secondItem="QyV-9s-KQ7" secondAttribute="bottom" constant="70" id="C6O-QU-vCJ"/>
-                            <constraint firstItem="QyV-9s-KQ7" firstAttribute="top" secondItem="nM8-mo-NG8" secondAttribute="bottom" constant="200" id="ELP-YX-tfD"/>
-                            <constraint firstItem="Kxa-Oz-qoG" firstAttribute="trailing" secondItem="vYw-Vr-vC3" secondAttribute="trailing" constant="100" id="ErT-sn-5aH"/>
-                            <constraint firstItem="vYw-Vr-vC3" firstAttribute="leading" secondItem="Kxa-Oz-qoG" secondAttribute="leading" constant="100" id="NEi-il-WAi"/>
-                            <constraint firstItem="Kxa-Oz-qoG" firstAttribute="trailing" secondItem="QyV-9s-KQ7" secondAttribute="trailing" constant="100" id="cmT-6S-Hka"/>
-                            <constraint firstItem="Kxa-Oz-qoG" firstAttribute="bottom" secondItem="nM8-mo-NG8" secondAttribute="bottom" constant="400" id="ehd-PT-qvs"/>
-                            <constraint firstItem="Kxa-Oz-qoG" firstAttribute="trailing" secondItem="nM8-mo-NG8" secondAttribute="trailing" constant="70" id="jZi-gA-VK6"/>
-                            <constraint firstItem="nM8-mo-NG8" firstAttribute="top" secondItem="Kxa-Oz-qoG" secondAttribute="top" constant="30" id="sRh-pH-Eja"/>
+                            <constraint firstItem="40G-oT-3eF" firstAttribute="leading" secondItem="Kxa-Oz-qoG" secondAttribute="leading" id="1oL-dQ-aYU"/>
+                            <constraint firstItem="Kxa-Oz-qoG" firstAttribute="trailing" secondItem="2eP-GF-JZd" secondAttribute="trailing" id="3io-9W-Lo7"/>
+                            <constraint firstItem="Kxa-Oz-qoG" firstAttribute="trailing" secondItem="sNW-m0-GZD" secondAttribute="trailing" constant="50" id="68G-CP-Vtl"/>
+                            <constraint firstItem="40G-oT-3eF" firstAttribute="top" secondItem="Kxa-Oz-qoG" secondAttribute="top" id="EEp-zz-ZhV"/>
+                            <constraint firstItem="2eP-GF-JZd" firstAttribute="top" secondItem="Kxa-Oz-qoG" secondAttribute="top" id="F2c-aj-QRq"/>
+                            <constraint firstItem="2eP-GF-JZd" firstAttribute="centerY" secondItem="40G-oT-3eF" secondAttribute="centerY" id="H7A-mW-jL2"/>
+                            <constraint firstItem="Kxa-Oz-qoG" firstAttribute="trailing" secondItem="40G-oT-3eF" secondAttribute="trailing" constant="70" id="R9M-Vu-Cfl"/>
+                            <constraint firstItem="Kxa-Oz-qoG" firstAttribute="bottom" secondItem="sNW-m0-GZD" secondAttribute="bottom" constant="100" id="UJ6-BH-xhq"/>
+                            <constraint firstItem="nM8-mo-NG8" firstAttribute="top" secondItem="40G-oT-3eF" secondAttribute="bottom" constant="80" id="YqY-ck-LOH"/>
+                            <constraint firstItem="sNW-m0-GZD" firstAttribute="leading" secondItem="Kxa-Oz-qoG" secondAttribute="leading" constant="50" id="bzN-Kq-eq2"/>
+                            <constraint firstItem="Kxa-Oz-qoG" firstAttribute="trailing" secondItem="nM8-mo-NG8" secondAttribute="trailing" constant="50" id="gxM-Jx-K7f"/>
+                            <constraint firstItem="nM8-mo-NG8" firstAttribute="leading" secondItem="Kxa-Oz-qoG" secondAttribute="leading" constant="50" id="lsJ-GI-jen"/>
+                            <constraint firstItem="nM8-mo-NG8" firstAttribute="centerX" secondItem="Kxa-Oz-qoG" secondAttribute="centerX" id="vla-dx-OW7"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="pictureImageView" destination="nM8-mo-NG8" id="w8s-dG-VNB"/>
+                        <outlet property="storageSearchBar" destination="40G-oT-3eF" id="wDl-Zs-9KP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2c6-fA-zVs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1163" y="332"/>
+            <point key="canvasLocation" x="1162.5954198473282" y="331.69014084507046"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="T0j-7z-V5m">
@@ -324,6 +358,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="magnifyingglass.circle" catalog="system" width="128" height="123"/>
         <namedColor name="AccentColor">
             <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
