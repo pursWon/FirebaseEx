@@ -20,12 +20,12 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         setBorder()
-        signInButton.addTarget(self, action: #selector(signIn), for: .touchUpInside)
+        signInButton.addTarget(self, action: #selector(googleSignIn), for: .touchUpInside)
     }
     
     func setBorder() {
         [idTextField, passWordTextField].forEach {
-            $0?.layer.borderWidth = 0.5
+            $0?.layer.borderWidth = 1
             $0?.layer.borderColor = UIColor.black.cgColor
             $0?.layer.cornerRadius = 5
         }
@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
         passWordTextField.text = ""
     }
     
-    @objc func signIn() {
+    @objc func googleSignIn() { // 구글 로그인
         // 구글에서 파이어베이스 authencation을 사용하는 사용자의 고유 아이디값을 필요로 하기 때문에 configutration 정보를 만들어서 대입해준다.
         let clientID = GIDConfiguration.init(clientID: "336306821307-oqapl9lu7f2b923jnsrbkvdimvb350at.apps.googleusercontent.com")
         GIDSignIn.sharedInstance.configuration = clientID
@@ -49,9 +49,16 @@ class LoginViewController: UIViewController {
             Auth.auth().signIn(with: credential) { result, error in
                 if let result = result {
                     print(result)
-                    print("성공")
+                    print("구글 로그인 성공")
+                    
+                    let currentUser = User(email: result.user.email, uid: result.user.uid, photoURL: result.user.photoURL, displayName: result.user.displayName)
+                    
+                    guard let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController else { return }
+                    mainVC.modalPresentationStyle = .fullScreen
+                    mainVC.user = currentUser
+                    self.navigationController?.present(mainVC, animated: true)
                 } else {
-                    print("실패")
+                    print("구글 로그인 실패")
                 }
             }
         }
