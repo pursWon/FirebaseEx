@@ -21,6 +21,7 @@
 		D0114D482A85EB30009BAA75 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D0114D472A85EB30009BAA75 /* FirebaseMessaging */; };
 		D0114D4A2A85EB30009BAA75 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = D0114D492A85EB30009BAA75 /* FirebaseRemoteConfig */; };
 		D0114D4C2A85EB30009BAA75 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D0114D4B2A85EB30009BAA75 /* FirebaseStorage */; };
+		D0B31E942A9BB08300193D1B /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B31E932A9BB08300193D1B /* Alert.swift */; };
 		D0BBF6B22A8D116B00FE0986 /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BBF6B12A8D116B00FE0986 /* Information.swift */; };
 		D0BBF6B42A8E6F0F00FE0986 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BBF6B32A8E6F0F00FE0986 /* LoginViewController.swift */; };
 		D0CED0802A92762F00119D7D /* ImageManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CED07F2A92762F00119D7D /* ImageManageViewController.swift */; };
@@ -40,6 +41,7 @@
 		D0114D342A85EA89009BAA75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0114D362A85EA89009BAA75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0114D3C2A85EAC4009BAA75 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D0B31E932A9BB08300193D1B /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		D0BBF6B12A8D116B00FE0986 /* Information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information.swift; sourceTree = "<group>"; };
 		D0BBF6B32A8E6F0F00FE0986 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D0CED07F2A92762F00119D7D /* ImageManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManageViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				D0CED0812A945ECC00119D7D /* SignUpViewController.swift */,
 				D0CED0832A9466B700119D7D /* MainViewController.swift */,
 				D0BBF6B12A8D116B00FE0986 /* Information.swift */,
+				D0B31E932A9BB08300193D1B /* Alert.swift */,
 				D0114D2E2A85EA88009BAA75 /* Main.storyboard */,
 				D0114D312A85EA89009BAA75 /* Assets.xcassets */,
 				D0114D332A85EA89009BAA75 /* LaunchScreen.storyboard */,
@@ -190,6 +193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0B31E942A9BB08300193D1B /* Alert.swift in Sources */,
 				D0114D2D2A85EA88009BAA75 /* HomeViewController.swift in Sources */,
 				D0CED0822A945ECC00119D7D /* SignUpViewController.swift in Sources */,
 				D0114D292A85EA88009BAA75 /* AppDelegate.swift in Sources */,
