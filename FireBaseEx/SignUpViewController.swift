@@ -5,8 +5,6 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -9,8 +9,6 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(user)
-        
         guard let email = user?.email else { return }
         emailLabel.text = email
     }
@@ -18,6 +16,7 @@ class MainViewController: UIViewController {
     @IBAction func logOutButtonClicked(_ sender: UIButton) {
         do {
             try Auth.auth().signOut()
+            print("로그 아웃 성공")
             self.dismiss(animated: true)
         } catch {
             print(error.localizedDescription)
