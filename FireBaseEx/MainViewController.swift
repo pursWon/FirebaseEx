@@ -13,10 +13,15 @@ class MainViewController: UIViewController {
         emailLabel.text = email
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        showAlert(title: "로그인에 성공하였습니다.")
+    }
+    
     @IBAction func logOutButtonClicked(_ sender: UIButton) {
         do {
             try Auth.auth().signOut()
-            print("로그 아웃 성공")
             self.dismiss(animated: true)
         } catch {
             print(error.localizedDescription)
