@@ -22,7 +22,10 @@ class MainViewController: UIViewController {
     @IBAction func logOutButtonClicked(_ sender: UIButton) {
         do {
             try Auth.auth().signOut()
-            self.dismiss(animated: true)
+            guard let loginVC = self.presentingViewController else { return }
+            self.dismiss(animated: true) {
+                loginVC.showAlert(title: "로그아웃 하였습니다.")
+            }
         } catch {
             print(error.localizedDescription)
         }
