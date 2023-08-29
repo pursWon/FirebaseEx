@@ -36,8 +36,7 @@ class LoginViewController: UIViewController {
         passWordTextField.text = ""
     }
     
-    @objc func googleSignIn() { // 구글 로그인
-        // 구글에서 파이어베이스 authencation을 사용하는 사용자의 고유 아이디값을 필요로 하기 때문에 configutration 정보를 만들어서 대입해준다.
+    @objc func googleSignIn() {
         let clientID = GIDConfiguration.init(clientID: "336306821307-oqapl9lu7f2b923jnsrbkvdimvb350at.apps.googleusercontent.com")
         GIDSignIn.sharedInstance.configuration = clientID
         
@@ -49,7 +48,6 @@ class LoginViewController: UIViewController {
             Auth.auth().signIn(with: credential) { result, error in
                 if let result = result {
                     print(result)
-                    print("구글 로그인 성공")
                     
                     let currentUser = User(email: result.user.email, uid: result.user.uid, photoURL: result.user.photoURL, displayName: result.user.displayName)
                     
@@ -58,7 +56,7 @@ class LoginViewController: UIViewController {
                     mainVC.user = currentUser
                     self.navigationController?.present(mainVC, animated: true)
                 } else {
-                    print("구글 로그인 실패")
+                    self.showAlert(title: "구글 로그인에 실패하였습니다.")
                 }
             }
         }
@@ -69,19 +67,19 @@ class LoginViewController: UIViewController {
         guard let passWord: String = passWordTextField.text?.description else { return }
         
         Auth.auth().signIn(withEmail: email, password: passWord) { authResult, error in
+            self.checkLogin(idText: email, passwordText: passWord)
+            
             if let authResult = authResult {
-                print("로그인 성공")
+                self.clearTextField()
                 let currentUser = User(email: authResult.user.email, uid: authResult.user.uid, photoURL: authResult.user.photoURL, displayName: authResult.user.displayName)
                 guard let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController else { return }
                 mainVC.user = currentUser
                 mainVC.modalPresentationStyle = .fullScreen
                 self.navigationController?.present(mainVC, animated: true)
             } else {
-                print("로그인 실패")
+                self.showAlert(title: "해당 계정은 존재하지 않습니다.")
                 print(error.debugDescription)
             }
-            
-            self.clearTextField()
         }
     }
     
