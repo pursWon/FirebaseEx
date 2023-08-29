@@ -33,13 +33,15 @@ class MainViewController: UIViewController {
     
     @IBAction func resignButtonClicked(_ sender: UIButton) {
         let user = Auth.auth().currentUser
+        guard let loginVC = self.presentingViewController else { return }
         
         user?.delete { error in
             if let error = error {
                 print(error.localizedDescription)
             } else {
-                print("계정 삭제 성공")
-                self.dismiss(animated: true)
+                self.dismiss(animated: true) {
+                    loginVC.showAlert(title: "계정을 삭제하였습니다.")
+                }
             }
         }
     }
