@@ -181,7 +181,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2c6-fA-zVs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1162.5954198473282" y="331.69014084507046"/>
+            <point key="canvasLocation" x="1151" y="393"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="T0j-7z-V5m">
@@ -195,12 +195,12 @@
                                 <rect key="frame" x="70" y="500" width="235" height="137"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VzN-hK-5Fe" customClass="GIDSignInButton">
-                                        <rect key="frame" x="0.0" y="0.0" width="235" height="32.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="235" height="19.5"/>
                                         <color key="backgroundColor" red="1" green="1" blue="0.17147640310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSK-a1-uFw">
-                                        <rect key="frame" x="0.0" y="52.5" width="235" height="32"/>
+                                        <rect key="frame" x="0.0" y="39.5" width="235" height="19"/>
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
@@ -209,8 +209,18 @@
                                             <action selector="loginButtonAction:" destination="JuO-Lc-Wu7" eventType="touchUpInside" id="Zqr-Mw-sRO"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5NC-Vd-XLR">
+                                        <rect key="frame" x="0.0" y="78.5" width="235" height="19.5"/>
+                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="비밀번호 재설정"/>
+                                        <connections>
+                                            <action selector="changePasswordButton:" destination="JuO-Lc-Wu7" eventType="touchUpInside" id="nRq-lM-zb7"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yoN-bF-MK7">
-                                        <rect key="frame" x="0.0" y="104.5" width="235" height="32.5"/>
+                                        <rect key="frame" x="0.0" y="118" width="235" height="19"/>
                                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="회원가입"/>
@@ -221,7 +231,9 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="VzN-hK-5Fe" firstAttribute="leading" secondItem="oqr-Wq-40X" secondAttribute="leading" id="Elw-Rx-9Se"/>
+                                    <constraint firstAttribute="trailing" secondItem="5NC-Vd-XLR" secondAttribute="trailing" id="LAe-Xx-7oa"/>
                                     <constraint firstItem="YSK-a1-uFw" firstAttribute="leading" secondItem="oqr-Wq-40X" secondAttribute="leading" id="LME-Nx-pte"/>
+                                    <constraint firstItem="5NC-Vd-XLR" firstAttribute="leading" secondItem="oqr-Wq-40X" secondAttribute="leading" id="RZO-Zf-c7k"/>
                                     <constraint firstAttribute="trailing" secondItem="YSK-a1-uFw" secondAttribute="trailing" id="dUS-N3-56H"/>
                                     <constraint firstAttribute="trailing" secondItem="yoN-bF-MK7" secondAttribute="trailing" id="kIF-Ik-e95"/>
                                     <constraint firstAttribute="trailing" secondItem="VzN-hK-5Fe" secondAttribute="trailing" id="p49-gX-P16"/>
@@ -318,7 +330,116 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j8J-eU-5A4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1946" y="-320"/>
+            <point key="canvasLocation" x="2094" y="393"/>
+        </scene>
+        <!--Password Change View Controller-->
+        <scene sceneID="aL1-zA-Z7c">
+            <objects>
+                <viewController storyboardIdentifier="PasswordChangeViewController" id="IAA-KZ-LJm" customClass="PasswordChangeViewController" customModule="FireBaseEx" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GeN-jb-fFG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이메일을 입력해주세요" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vpt-RI-fce">
+                                <rect key="frame" x="50" y="300" width="275" height="34"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHB-Ot-bu9">
+                                <rect key="frame" x="100" y="468" width="175" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="다음"/>
+                                <connections>
+                                    <action selector="nextButtonClicked:" destination="IAA-KZ-LJm" eventType="touchUpInside" id="kUy-7y-cKh"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호를 입력해주세요" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Whm-Uy-6Ly">
+                                <rect key="frame" x="50" y="364" width="275" height="34"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 재설정" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROV-Kq-mRC">
+                                <rect key="frame" x="50" y="160" width="275" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qgS-zi-ZI9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ROV-Kq-mRC" firstAttribute="leading" secondItem="qgS-zi-ZI9" secondAttribute="leading" constant="50" id="9KK-jK-Dd9"/>
+                            <constraint firstItem="Whm-Uy-6Ly" firstAttribute="top" secondItem="Vpt-RI-fce" secondAttribute="bottom" constant="30" id="BJN-jK-zxE"/>
+                            <constraint firstItem="qgS-zi-ZI9" firstAttribute="trailing" secondItem="Vpt-RI-fce" secondAttribute="trailing" constant="50" id="BYD-h7-nms"/>
+                            <constraint firstItem="Vpt-RI-fce" firstAttribute="top" secondItem="qgS-zi-ZI9" secondAttribute="top" constant="300" id="E8q-us-jDN"/>
+                            <constraint firstItem="Whm-Uy-6Ly" firstAttribute="leading" secondItem="qgS-zi-ZI9" secondAttribute="leading" constant="50" id="HUo-WJ-5cV"/>
+                            <constraint firstItem="NHB-Ot-bu9" firstAttribute="top" secondItem="Whm-Uy-6Ly" secondAttribute="bottom" constant="70" id="Ija-t0-Fcr"/>
+                            <constraint firstItem="NHB-Ot-bu9" firstAttribute="leading" secondItem="qgS-zi-ZI9" secondAttribute="leading" constant="100" id="NKD-gm-XVa"/>
+                            <constraint firstItem="qgS-zi-ZI9" firstAttribute="trailing" secondItem="NHB-Ot-bu9" secondAttribute="trailing" constant="100" id="PMz-rY-kLI"/>
+                            <constraint firstItem="ROV-Kq-mRC" firstAttribute="top" secondItem="qgS-zi-ZI9" secondAttribute="top" constant="160" id="bkU-L3-eKb"/>
+                            <constraint firstItem="qgS-zi-ZI9" firstAttribute="trailing" secondItem="ROV-Kq-mRC" secondAttribute="trailing" constant="50" id="jx3-1N-Un5"/>
+                            <constraint firstItem="Vpt-RI-fce" firstAttribute="leading" secondItem="qgS-zi-ZI9" secondAttribute="leading" constant="50" id="nUn-Yx-mMv"/>
+                            <constraint firstItem="qgS-zi-ZI9" firstAttribute="trailing" secondItem="Whm-Uy-6Ly" secondAttribute="trailing" constant="50" id="rej-jm-udh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="idTextField" destination="Vpt-RI-fce" id="jMU-Zc-Q7z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IBW-Gr-HFh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2094" y="-1018"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="saK-4d-Jb1">
+            <objects>
+                <viewController id="ASE-Qo-ubP" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dJV-q5-PWv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="새 비밀번호를 입력해주세요" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zUq-wu-i1d">
+                                <rect key="frame" x="50" y="316.5" width="275" height="34"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 재설정" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3n-hR-XQN">
+                                <rect key="frame" x="50" y="160" width="275" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DvH-3n-kj8">
+                                <rect key="frame" x="50" y="450.5" width="275" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="비밀번호 재설정"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="e2h-i7-0wI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zUq-wu-i1d" firstAttribute="centerY" secondItem="e2h-i7-0wI" secondAttribute="centerY" id="0x2-s7-Ygk"/>
+                            <constraint firstItem="zUq-wu-i1d" firstAttribute="centerX" secondItem="e2h-i7-0wI" secondAttribute="centerX" id="6AM-0V-f6K"/>
+                            <constraint firstItem="e2h-i7-0wI" firstAttribute="trailing" secondItem="DvH-3n-kj8" secondAttribute="trailing" constant="50" id="Dx3-oC-jNx"/>
+                            <constraint firstItem="zUq-wu-i1d" firstAttribute="leading" secondItem="e2h-i7-0wI" secondAttribute="leading" constant="50" id="K3q-dI-b3F"/>
+                            <constraint firstItem="e2h-i7-0wI" firstAttribute="trailing" secondItem="zUq-wu-i1d" secondAttribute="trailing" constant="50" id="K9N-9a-gaG"/>
+                            <constraint firstItem="DvH-3n-kj8" firstAttribute="top" secondItem="zUq-wu-i1d" secondAttribute="bottom" constant="100" id="Ku4-If-jOK"/>
+                            <constraint firstItem="a3n-hR-XQN" firstAttribute="leading" secondItem="e2h-i7-0wI" secondAttribute="leading" constant="50" id="NdN-iQ-H03"/>
+                            <constraint firstItem="e2h-i7-0wI" firstAttribute="trailing" secondItem="a3n-hR-XQN" secondAttribute="trailing" constant="50" id="Qyt-K4-paL"/>
+                            <constraint firstItem="DvH-3n-kj8" firstAttribute="leading" secondItem="e2h-i7-0wI" secondAttribute="leading" constant="50" id="sqC-BP-LxZ"/>
+                            <constraint firstItem="a3n-hR-XQN" firstAttribute="top" secondItem="e2h-i7-0wI" secondAttribute="top" constant="160" id="ztK-aI-NPd"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="26x-6l-q9z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2855" y="-1019"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="dpw-xM-5eK">
@@ -370,7 +491,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7xh-Vu-9VT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2727.4809160305344" y="-305.63380281690144"/>
+            <point key="canvasLocation" x="2095" y="-321"/>
         </scene>
     </scenes>
     <resources>
@@ -392,6 +513,9 @@
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
