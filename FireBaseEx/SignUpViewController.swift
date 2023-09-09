@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseAnalytics
 import FirebaseAuth
 
 class SignUpViewController: UIViewController {
@@ -8,6 +9,7 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Analytics.logEvent("회원가입", parameters: nil)
     }
     
     func clearText() {
