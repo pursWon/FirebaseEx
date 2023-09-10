@@ -1,6 +1,7 @@
 import UIKit
 import FirebaseCore
 import FirebaseAuth
+import FirebaseAnalytics
 import GoogleSignIn
 
 struct User {
@@ -72,6 +73,8 @@ class LoginViewController: UIViewController {
             if let authResult = authResult {
                 self.clearTextField()
                 let currentUser = User(email: authResult.user.email, uid: authResult.user.uid, photoURL: authResult.user.photoURL, displayName: authResult.user.displayName)
+                Analytics.logEvent(AnalyticsEventLogin, parameters: nil)
+                
                 guard let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController else { return }
                 mainVC.user = currentUser
                 mainVC.modalPresentationStyle = .fullScreen
@@ -81,6 +84,10 @@ class LoginViewController: UIViewController {
                 print(error.debugDescription)
             }
         }
+    }
+    
+    @IBAction func changePasswordButton(_ sender: UIButton) {
+        
     }
     
     @IBAction func signUpButton(_ sender: UIButton) {
