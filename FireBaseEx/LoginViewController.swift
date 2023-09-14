@@ -20,6 +20,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        Analytics.logEvent("Enter the login screen", parameters: nil)
         setBorder()
         signInButton.addTarget(self, action: #selector(googleSignIn), for: .touchUpInside)
     }
@@ -87,7 +89,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func changePasswordButton(_ sender: UIButton) {
+        guard let resetVC = self.storyboard?.instantiateViewController(withIdentifier: "ResetViewController") as? ResetViewController else { return }
         
+        navigationController?.pushViewController(resetVC, animated: true)
     }
     
     @IBAction func signUpButton(_ sender: UIButton) {
