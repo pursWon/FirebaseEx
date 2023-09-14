@@ -3,6 +3,7 @@ import FirebaseAuth
 
 class PassWordResetViewController: UIViewController {
     @IBOutlet weak var passWordResetTextField: UITextField!
+    var existPassWord: String?
     
     func clearTextField() {
         passWordResetTextField.text = ""
@@ -15,6 +16,11 @@ class PassWordResetViewController: UIViewController {
     
     @IBAction func resetPassWordButtonClicked(_ sender: UIButton) {
         guard let resetPassWord = passWordResetTextField.text else { return }
+        
+        guard existPassWord != resetPassWord else {
+            self.clearTextField()
+            self.showAlert(title: "기존의 비밀번호와 같습니다.")
+        return }
         
         Auth.auth().currentUser?.updatePassword(to: resetPassWord) { error in
             if error == nil {
