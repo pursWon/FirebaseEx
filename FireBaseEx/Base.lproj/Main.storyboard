@@ -332,10 +332,10 @@
             </objects>
             <point key="canvasLocation" x="2094" y="393"/>
         </scene>
-        <!--Password Change View Controller-->
+        <!--Reset View Controller-->
         <scene sceneID="aL1-zA-Z7c">
             <objects>
-                <viewController storyboardIdentifier="PasswordChangeViewController" id="IAA-KZ-LJm" customClass="PasswordChangeViewController" customModule="FireBaseEx" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResetViewController" id="IAA-KZ-LJm" customClass="ResetViewController" customModule="FireBaseEx" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GeN-jb-fFG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -388,16 +388,17 @@
                     </view>
                     <connections>
                         <outlet property="idTextField" destination="Vpt-RI-fce" id="jMU-Zc-Q7z"/>
+                        <outlet property="passWordTextField" destination="Whm-Uy-6Ly" id="65c-mc-Vdz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IBW-Gr-HFh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2094" y="-1018"/>
         </scene>
-        <!--View Controller-->
+        <!--Pass Word Reset View Controller-->
         <scene sceneID="saK-4d-Jb1">
             <objects>
-                <viewController id="ASE-Qo-ubP" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PassWordResetViewController" id="ASE-Qo-ubP" customClass="PassWordResetViewController" customModule="FireBaseEx" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dJV-q5-PWv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -419,6 +420,9 @@
                                 <rect key="frame" x="50" y="450.5" width="275" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="비밀번호 재설정"/>
+                                <connections>
+                                    <action selector="resetPassWordButtonClicked:" destination="ASE-Qo-ubP" eventType="touchUpInside" id="ylT-xc-knI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="e2h-i7-0wI"/>
@@ -436,6 +440,9 @@
                             <constraint firstItem="a3n-hR-XQN" firstAttribute="top" secondItem="e2h-i7-0wI" secondAttribute="top" constant="160" id="ztK-aI-NPd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passWordResetTextField" destination="zUq-wu-i1d" id="G4n-qy-lI5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26x-6l-q9z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
