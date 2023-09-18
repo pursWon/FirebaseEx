@@ -12,6 +12,7 @@ class PassWordResetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.setHidesBackButton(true, animated: true)
     }
     
     @IBAction func resetPassWordButtonClicked(_ sender: UIButton) {
