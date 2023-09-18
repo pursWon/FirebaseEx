@@ -26,7 +26,7 @@ class ResetViewController: UIViewController {
                 self.clearTextField()
                 
                 guard let passWordResetVC = self.storyboard?.instantiateViewController(withIdentifier: "PassWordResetViewController") as? PassWordResetViewController else { return }
-                
+                passWordResetVC.existPassWord = passWord
                 self.navigationController?.pushViewController(passWordResetVC, animated: true)
             } else {
                 self.showAlert(title: "해당 계정은 존재하지 않습니다.")
