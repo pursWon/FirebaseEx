@@ -17,10 +17,17 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signInButton: GIDSignInButton!
     
+    lazy var leftButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(title: "홈으로", style: .plain, target: self, action: #selector(homeButtonPressed(_:)))
+        
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.setHidesBackButton(true, animated: true)
+        self.navigationItem.leftBarButtonItem = leftButton
         Analytics.logEvent("Enter the login screen", parameters: nil)
         setBorder()
         signInButton.addTarget(self, action: #selector(googleSignIn), for: .touchUpInside)
@@ -37,6 +44,10 @@ class LoginViewController: UIViewController {
     func clearTextField() {
         idTextField.text = ""
         passWordTextField.text = ""
+    }
+    
+    @objc func homeButtonPressed(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @objc func googleSignIn() {
