@@ -1,6 +1,7 @@
 import UIKit
 import FirebaseRemoteConfig
 import FirebaseStorage
+import FirebaseAnalytics
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var myLabel: UILabel!
@@ -56,6 +57,7 @@ class HomeViewController: UIViewController {
     @IBAction func moveLoginVC(_ sender: UIButton) {
         guard let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") else { return }
         
+        loginVC.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(loginVC, animated: true)
     }
     
