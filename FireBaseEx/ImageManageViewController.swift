@@ -41,7 +41,7 @@ class ImageManageViewController: UIViewController {
                     guard let url = url else { return }
                     urls.append(url)
                     
-                    if urls.count == 5 {
+                    if urls.count == result.items.count {
                         completion(urls)
                     }
                 }
