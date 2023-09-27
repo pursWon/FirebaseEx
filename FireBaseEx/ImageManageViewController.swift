@@ -1,5 +1,6 @@
 import UIKit
 import FirebaseStorage
+import FirebaseAnalytics
 
 class ImageManageViewController: UIViewController {
     @IBOutlet weak var pictureImageView: UIImageView!
@@ -7,6 +8,7 @@ class ImageManageViewController: UIViewController {
     
     let storage = Storage.storage()
     var storageItems: [StorageReference] = []
+    var imageURLs: [URL] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,25 @@ class ImageManageViewController: UIViewController {
         storage.reference().child("myImages").listAll { result, error in
             guard let items = result?.items else { return }
             self.storageItems = items
+        }
+    }
+    
+    func setImageURL(completion: @escaping ([URL]) -> Void) {
+        var urls: [URL] = []
+        
+        Storage.storage().reference().child("myImages").listAll { result, error in
+            guard let result = result else { return }
+            
+            result.items.forEach {
+                $0.downloadURL { url, error in
+                    guard let url = url else { return }
+                    urls.append(url)
+                    
+                    if urls.count == 5 {
+                        completion(urls)
+                    }
+                }
+            }
         }
     }
     
@@ -68,8 +89,18 @@ class ImageManageViewController: UIViewController {
     }
     
     @IBAction func searchButton(_ sender: UIButton) {
+        Analytics.logEvent("search_button_clicked", parameters: nil)
         guard let searchText = storageSearchBar.text else { return }
         downloadImage(text: searchText)
+    }
+    
+    @IBAction func moveToImagesVCButtonClicked(_ sender: UIButton) {
+        guard let imagesVC = self.storyboard?.instantiateViewController(withIdentifier: "ImagesViewController") as? ImagesViewController else { return }
+        
+        setImageURL { imagesURL in
+            imagesVC.imageURLs = imagesURL
+            self.navigationController?.pushViewController(imagesVC, animated: true)
+        }
     }
 }
 
