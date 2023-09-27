@@ -1,4 +1,5 @@
 import UIKit
+import Kingfisher
 import FirebaseStorage
 import FirebaseAnalytics
 
@@ -7,6 +8,7 @@ class ImageManageViewController: UIViewController {
     @IBOutlet weak var storageSearchBar: UISearchBar!
     
     let storage = Storage.storage()
+    let items = Storage.storage().reference().child("myImages")
     var storageItems: [StorageReference] = []
     var imageURLs: [URL] = []
     
@@ -24,7 +26,7 @@ class ImageManageViewController: UIViewController {
     }
     
     func setUpstorageImage() {
-        storage.reference().child("myImages").listAll { result, error in
+        items.listAll { result, error in
             guard let items = result?.items else { return }
             self.storageItems = items
         }
@@ -33,7 +35,7 @@ class ImageManageViewController: UIViewController {
     func setImageURL(completion: @escaping ([URL]) -> Void) {
         var urls: [URL] = []
         
-        Storage.storage().reference().child("myImages").listAll { result, error in
+        items.listAll { result, error in
             guard let result = result else { return }
             
             result.items.forEach {
@@ -59,15 +61,7 @@ class ImageManageViewController: UIViewController {
                         guard error == nil else { return }
                         guard let url = url else { return }
                         
-                        DispatchQueue.global().async {
-                            if let data = try? Data(contentsOf: url) {
-                                if let pictureImage = UIImage(data: data) {
-                                    DispatchQueue.main.async {
-                                        self.pictureImageView.image = pictureImage
-                                    }
-                                }
-                            }
-                        }
+                        self.pictureImageView.kf.setImage(with: url)
                     }
                 }
             }
