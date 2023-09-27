@@ -28,7 +28,6 @@ class LoginViewController: UIViewController {
         
         self.navigationItem.setHidesBackButton(true, animated: true)
         self.navigationItem.leftBarButtonItem = leftButton
-        Analytics.logEvent("Enter the login screen", parameters: nil)
         setBorder()
         signInButton.addTarget(self, action: #selector(googleSignIn), for: .touchUpInside)
     }
