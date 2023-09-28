@@ -32,19 +32,22 @@ class ImageManageViewController: UIViewController {
         }
     }
     
-    func setImageURL(completion: @escaping ([URL]) -> Void) {
-        var urls: [URL] = []
+    func setImageURL(completion: @escaping ([ImageInform]) -> Void) {
+        var inform: [ImageInform] = []
         
         items.listAll { result, error in
             guard let result = result else { return }
-            
+            let names = result.items.map { $0.name.components(separatedBy: ".")[0] }
+           
             result.items.forEach {
+                guard let index = result.items.firstIndex(of: $0) else { return }
+                
                 $0.downloadURL { url, error in
                     guard let url = url else { return }
-                    urls.append(url)
+                    inform.append(ImageInform(url: url, imageName: names[index]))
                     
-                    if urls.count == result.items.count {
-                        completion(urls)
+                    if inform.count == result.items.count {
+                        completion(inform)
                     }
                 }
             }
@@ -91,8 +94,8 @@ class ImageManageViewController: UIViewController {
     @IBAction func moveToImagesVCButtonClicked(_ sender: UIButton) {
         guard let imagesVC = self.storyboard?.instantiateViewController(withIdentifier: "ImagesViewController") as? ImagesViewController else { return }
         
-        setImageURL { imagesURL in
-            imagesVC.imageURLs = imagesURL
+        setImageURL { imagesInform in
+            imagesVC.imagesInform = imagesInform
             self.navigationController?.pushViewController(imagesVC, animated: true)
         }
     }
@@ -103,4 +106,9 @@ extension ImageManageViewController: UISearchBarDelegate {
         guard let searchText = storageSearchBar.text else { return }
         downloadImage(text: searchText)
     }
+}
+
+struct ImageInform {
+    let url: URL
+    let imageName: String
 }
