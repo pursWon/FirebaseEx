@@ -21,7 +21,9 @@
 		D0114D482A85EB30009BAA75 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D0114D472A85EB30009BAA75 /* FirebaseMessaging */; };
 		D0114D4A2A85EB30009BAA75 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = D0114D492A85EB30009BAA75 /* FirebaseRemoteConfig */; };
 		D0114D4C2A85EB30009BAA75 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D0114D4B2A85EB30009BAA75 /* FirebaseStorage */; };
+		D067749F2AD97F3D00892B24 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D067749E2AD97F3D00892B24 /* PageContentViewController.swift */; };
 		D071C7D12A9ECC750089C7ED /* ResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D071C7D02A9ECC750089C7ED /* ResetViewController.swift */; };
+		D08EDB812AD807060005093F /* ImagesPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08EDB802AD807060005093F /* ImagesPageViewController.swift */; };
 		D09797212AB2C92C006FBCF4 /* PassWordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09797202AB2C92C006FBCF4 /* PassWordResetViewController.swift */; };
 		D0B31E942A9BB08300193D1B /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B31E932A9BB08300193D1B /* Alert.swift */; };
 		D0B716062ABB193B0007ACD9 /* ImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B716052ABB193B0007ACD9 /* ImagesViewController.swift */; };
@@ -29,6 +31,7 @@
 		D0B7160C2ABDA0C10007ACD9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D0B7160B2ABDA0C10007ACD9 /* Kingfisher */; };
 		D0BBF6B22A8D116B00FE0986 /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BBF6B12A8D116B00FE0986 /* Information.swift */; };
 		D0BBF6B42A8E6F0F00FE0986 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BBF6B32A8E6F0F00FE0986 /* LoginViewController.swift */; };
+		D0C5C89D2AD8471000221B2C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D0C5C89C2AD8471000221B2C /* SnapKit */; };
 		D0C69C792A9E5B8B004076E7 /* CheckLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C69C782A9E5B8B004076E7 /* CheckLogin.swift */; };
 		D0CED0802A92762F00119D7D /* ImageManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CED07F2A92762F00119D7D /* ImageManageViewController.swift */; };
 		D0CED0822A945ECC00119D7D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CED0812A945ECC00119D7D /* SignUpViewController.swift */; };
@@ -47,7 +50,9 @@
 		D0114D342A85EA89009BAA75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0114D362A85EA89009BAA75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0114D3C2A85EAC4009BAA75 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D067749E2AD97F3D00892B24 /* PageContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
 		D071C7D02A9ECC750089C7ED /* ResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetViewController.swift; sourceTree = "<group>"; };
+		D08EDB802AD807060005093F /* ImagesPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesPageViewController.swift; sourceTree = "<group>"; };
 		D09797202AB2C92C006FBCF4 /* PassWordResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassWordResetViewController.swift; sourceTree = "<group>"; };
 		D0B31E932A9BB08300193D1B /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		D0B716052ABB193B0007ACD9 /* ImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +80,7 @@
 				D0114D4C2A85EB30009BAA75 /* FirebaseStorage in Frameworks */,
 				D0114D402A85EB30009BAA75 /* FirebaseAnalytics in Frameworks */,
 				D0114D422A85EB30009BAA75 /* FirebaseAuth in Frameworks */,
+				D0C5C89D2AD8471000221B2C /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +130,8 @@
 				D09797202AB2C92C006FBCF4 /* PassWordResetViewController.swift */,
 				D0CED07F2A92762F00119D7D /* ImageManageViewController.swift */,
 				D0B716052ABB193B0007ACD9 /* ImagesViewController.swift */,
+				D08EDB802AD807060005093F /* ImagesPageViewController.swift */,
+				D067749E2AD97F3D00892B24 /* PageContentViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -190,6 +198,7 @@
 				D0CED0862A946CE700119D7D /* GoogleSignIn */,
 				D0CED0882A946CE700119D7D /* GoogleSignInSwift */,
 				D0B7160B2ABDA0C10007ACD9 /* Kingfisher */,
+				D0C5C89C2AD8471000221B2C /* SnapKit */,
 			);
 			productName = FireBaseEx;
 			productReference = D0114D252A85EA88009BAA75 /* FireBaseEx.app */;
@@ -223,6 +232,7 @@
 				D0114D3E2A85EB30009BAA75 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				D0CED0852A946CE700119D7D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				D0B7160A2ABDA0C10007ACD9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				D0C5C89B2AD8471000221B2C /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = D0114D262A85EA88009BAA75 /* Products */;
 			projectDirPath = "";
@@ -253,10 +263,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0C69C792A9E5B8B004076E7 /* CheckLogin.swift in Sources */,
+				D067749F2AD97F3D00892B24 /* PageContentViewController.swift in Sources */,
 				D0B31E942A9BB08300193D1B /* Alert.swift in Sources */,
 				D0114D2D2A85EA88009BAA75 /* HomeViewController.swift in Sources */,
 				D0CED0822A945ECC00119D7D /* SignUpViewController.swift in Sources */,
 				D0114D292A85EA88009BAA75 /* AppDelegate.swift in Sources */,
+				D08EDB812AD807060005093F /* ImagesPageViewController.swift in Sources */,
 				D0B716082ABB1A020007ACD9 /* ImagesCell.swift in Sources */,
 				D0BBF6B22A8D116B00FE0986 /* Information.swift in Sources */,
 				D0CED0802A92762F00119D7D /* ImageManageViewController.swift in Sources */,
@@ -501,6 +513,14 @@
 				kind = branch;
 			};
 		};
+		D0C5C89B2AD8471000221B2C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
 		D0CED0852A946CE700119D7D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
@@ -551,6 +571,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D0B7160A2ABDA0C10007ACD9 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		D0C5C89C2AD8471000221B2C /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0C5C89B2AD8471000221B2C /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 		D0CED0862A946CE700119D7D /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;
