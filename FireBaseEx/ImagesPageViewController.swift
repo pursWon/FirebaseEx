@@ -42,8 +42,9 @@ class ImagesPageViewController: UIPageViewController, UIPageViewControllerDelega
         guard let viewControllerIndex = PageViewControllerList.firstIndex(of: viewController) else { return nil }
         let previousIndex = viewControllerIndex - 1
         
-        guard previousIndex >= 0 else { return PageViewControllerList.last }
-        guard PageViewControllerList.count > previousIndex else { return nil }
+        if previousIndex < 0 {
+            return nil
+        }
         
         return PageViewControllerList[previousIndex]
     }
@@ -54,8 +55,9 @@ class ImagesPageViewController: UIPageViewController, UIPageViewControllerDelega
         
         let nextIndex = viewControllerIndex + 1
         
-        guard PageViewControllerList.count != nextIndex else { return PageViewControllerList.first }
-        guard PageViewControllerList.count > nextIndex else { return nil }
+        if nextIndex == PageViewControllerList.count {
+            return nil
+        }
         
         return PageViewControllerList[nextIndex]
     }

@@ -26,7 +26,7 @@ class PageContentViewController: UIViewController {
     
     private func setUpUI() {
         view.backgroundColor = .white
-        myImageView.contentMode = .scaleAspectFill
+        myImageView.contentMode = .scaleAspectFit
         nameLabel.textAlignment = .center
     }
     
