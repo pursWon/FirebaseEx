@@ -3,7 +3,6 @@ import SnapKit
 
 class ImagesPageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource{
     // MARK: -부모뷰에 삽입할 PageViewConroller 리스트
-    
     var PageViewControllerList = [UIViewController]()
     var imagesInform: [ImageInform] = []
     
@@ -52,7 +51,6 @@ class ImagesPageViewController: UIPageViewController, UIPageViewControllerDelega
     // MARK: 다음페이지에 위치할 ViewController return
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = PageViewControllerList.firstIndex(of: viewController) else { return nil }
-        
         let nextIndex = viewControllerIndex + 1
         
         if nextIndex == PageViewControllerList.count {
